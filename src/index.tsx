@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 
 import { Router } from './router';
 import reportWebVitals from './reportWebVitals';
 
+import { globalReducer } from './modules/global-reducer';
+
 import './index.css';
+
+const store = configureStore({
+	reducer: globalReducer,
+});
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
 	<React.StrictMode>
-		<Router />
+		<Provider store={store}>
+			<Router />
+		</Provider>
 	</React.StrictMode>
 );
 
