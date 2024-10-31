@@ -1,0 +1,10 @@
+.default-component {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+
+    & .date-box,
+    & .time-box {
+        padding: 20px;
+    }
+}
